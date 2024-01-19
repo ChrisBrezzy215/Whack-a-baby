@@ -300,10 +300,17 @@ function whack(event) {
 * Adds the 'click' event listeners to the moles. See the instructions
 * for an example on how to set event listeners using a for loop.
 */
-function setEventListeners(){
-  // TODO: Write your code here
+function setEventListeners() {
+  // Assuming you have mole elements with the class 'mole'
+  const moleElements = document.querySelectorAll('.mole');
 
-  return moles;
+  // Add 'click' event listener to each mole
+  moleElements.forEach(mole => {
+    mole.addEventListener('click', whack);
+  });
+
+  // Return the mole elements in case you need to interact with them later
+  return moleElements;
 }
 
 /**
