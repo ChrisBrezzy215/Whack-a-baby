@@ -39,8 +39,32 @@ function randomInteger(min, max) {
  * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
  *
  */
-function setDelay(difficulty) {
   // TODO: Write your code here.
+  function setDelay(difficulty) {
+  switch (difficulty) {
+    case "easy":
+      return 1500;
+    case "normal":
+      return 1000;
+    case "hard":
+      // Generate a random number between 600 and 1200
+      return Math.floor(Math.random() * (1200 - 600 + 1)) + 600;
+    default:
+      // Handle unexpected difficulty values
+      console.error("Invalid difficulty parameter");
+      return 0; // You can choose an appropriate default value
+  }
+}
+
+// Example usage:
+const easyDelay = setDelay("easy");
+const normalDelay = setDelay("normal");
+const hardDelay = setDelay("hard");
+
+console.log(easyDelay);   // Output: 1500
+console.log(normalDelay); // Output: 1000
+console.log(hardDelay);   // Output: Random number between 600 and 1200
+
   
 }
 
@@ -178,20 +202,20 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
 /**
 *
 * Updates the control board with the timer if time > 0
-*
+*look at what i added
 */
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-  
+  if(timer>0)
   return time;
 }
 
@@ -250,7 +274,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
 }
@@ -262,8 +286,8 @@ function stopGame(){
 *
 */
 function startGame(){
-  setDuration(10);
-  showUp();
+ setDuration(10);
+  howUp();
   return "game started";
 }
 
