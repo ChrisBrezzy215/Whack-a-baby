@@ -128,9 +128,17 @@ console.log(randomHole);
 */
 function gameOver() {
   // TODO: Write your code here
-  
+if (time > 0){
+ const timeoutId = showUp();
+return timeoutId;
+}else{
+ const gameStopped = stopGame()
+return gameStopped
 }
-
+}
+const timeRemaining = 10; // Replace this with the actual value of time
+const result = gameOver(timeRemaining);
+console.log(result);
 /**
 *
 * Calls the showAndHide() function with a specific delay and a hole.
@@ -141,8 +149,8 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = 0; // TODO: Update so that it uses setDelay()
-  const hole = 0;  // TODO: Update so that it use chooseHole()
+  let delay = 0 = setDelay(); // TODO: Update so that it uses setDelay()
+  const hole = 0 = chooseHole();  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
 
@@ -154,16 +162,42 @@ function showUp() {
 * the timeoutID
 *
 */
-function showAndHide(hole, delay){
-  // TODO: call the toggleVisibility function so that it adds the 'show' class.
-  
+function showAndHide(hole, delay) {
+  // Call toggleVisibility to show the mole
+  toggleVisibility(hole, 'show');
+
+  // Set the correct delay for setTimeout based on the parameter
   const timeoutID = setTimeout(() => {
-    // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
-    
+    // Call toggleVisibility to hide the mole when the timer times out
+    toggleVisibility(hole, 'hide');
+
+    // You might want to do something else here or leave it as is
+    // For example, you can call another function or handle game logic
+
+    // For now, I'm calling gameOver() as in your original code
     gameOver();
-  }, 0); // TODO: change the setTimeout delay to the one provided as a parameter
+  }, delay);
+
   return timeoutID;
 }
+
+// Example implementation of toggleVisibility function (replace it with your actual implementation)
+function toggleVisibility(hole, action) {
+  // TODO: Implement logic to toggle visibility based on the action
+  // For example, you can add or remove a CSS class to show or hide the mole
+  const moleElement = document.getElementById(`hole-${hole}`);
+  if (action === 'show') {
+    moleElement.classList.add('show');
+  } else if (action === 'hide') {
+    moleElement.classList.remove('show');
+  }
+}
+
+// Example usage:
+const holeNumber = 1; // Replace with the actual hole number
+const delayTime = 1000; // Replace with the actual delay time
+const result = showAndHide(holeNumber, delayTime);
+console.log(result);
 
 /**
 *
@@ -173,7 +207,7 @@ function showAndHide(hole, delay){
 */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  
+  hole.classList.toggle('show');
   return hole;
 }
 
@@ -189,7 +223,9 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-
+points++;
+  const score = document.getElementById('score');
+  score.text.textContent = points;
   return points;
 }
 
@@ -214,10 +250,24 @@ function clearScore() {
 */
 function updateTimer() {
   // TODO: Write your code here.
-  // hint: this code is provided to you in the instructions.
-  if(timer>0)
-  return time;
+  // Hint: The provided code checks if the timer is greater than 0 and returns the time value.
+  // You should update the control board with the timer value if time > 0.
+
+  if (timer > 0) {
+    // Assuming you have an element with the ID 'timer' for your control board
+    const timerElement = document.getElementById('timer');
+    
+    // Update the control board with the timer value
+    timerElement.textContent = timer;
+
+    // Return the time value
+    return time;
+  } else {
+    // Handle the case when time is not greater than 0, if needed
+    return 0;
+  }
 }
+
 
 /**
 *
@@ -227,7 +277,7 @@ function updateTimer() {
 */
 function startTimer() {
   // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -241,7 +291,7 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
+  call updateScore()
   return points;
 }
 
