@@ -1,5 +1,5 @@
 const holes = document.querySelectorAll('.hole');
-const moles = document.querySelectorAll('.mole');
+const moles = document.querySelectorAll('.baby');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
 const score = document.querySelectorAll('.score');; // Use querySelector() to get the score element
@@ -23,6 +23,8 @@ let difficulty = "hard";
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+console.log("A random integer between 0 and 10");
+console.log(randomInteger(0, 10));
 
 /**
  * Sets the time delay given a difficulty parameter.
