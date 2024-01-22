@@ -84,8 +84,7 @@ console.log(hardDelay);   // Output: Random number between 600 and 1200
  * const holes = document.querySelectorAll('.hole');
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
-function chooseHole(holes) {
-  // TODO: Write your code here.
+
   function chooseHole(holes) {
   const lastIndex = chooseHole.lastIndex;
   let index;
