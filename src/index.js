@@ -292,7 +292,7 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  call updateScore()
+    updateScore()
   return points;
 }
 
@@ -302,16 +302,13 @@ function whack(event) {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners() {
-  // Assuming you have mole elements with the class 'mole'
-  const moleElements = document.querySelectorAll('.mole');
+  const babys = document.querySelectorAll('.baby'); // Assuming moles have a class 'mole'
 
-  // Add 'click' event listener to each mole
-  moleElements.forEach(mole => {
-    mole.addEventListener('click', whack);
+  babys.forEach(mole => {
+    baby.addEventListener('click', whack);
   });
 
-  // Return the mole elements in case you need to interact with them later
-  return moleElements;
+  return moles;
 }
 
 /**
