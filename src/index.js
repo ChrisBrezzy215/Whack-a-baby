@@ -186,11 +186,11 @@ function showAndHide(hole, delay) {
 function toggleVisibility(hole, action) {
   // TODO: Implement logic to toggle visibility based on the action
   // For example, you can add or remove a CSS class to show or hide the mole
-  const moleElement = document.getElementById(`hole-${hole}`);
+  const babyElement = document.getElementById(`hole-${hole}`);
   if (action === 'show') {
-    moleElement.classList.add('show');
+    babyElement.classList.add('show');
   } else if (action === 'hide') {
-    moleElement.classList.remove('show');
+    babyElement.classList.remove('show');
   }
 }
 
@@ -304,7 +304,7 @@ function whack(event) {
 function setEventListeners() {
   const babys = document.querySelectorAll('.baby'); // Assuming moles have a class 'mole'
 
-  babys.forEach(mole => {
+  babys.forEach(baby => {
     baby.addEventListener('click', whack);
   });
 
@@ -358,7 +358,7 @@ window.startGame = startGame;
 window.gameOver = gameOver;
 window.showUp = showUp;
 window.holes = holes;
-window.moles = moles;
+window.baby = baby;
 window.showAndHide = showAndHide;
 window.points = points;
 window.updateScore = updateScore;
