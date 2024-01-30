@@ -37,12 +37,12 @@ describe("US-01: Basic Game Structure", () => {
   });
 
   it("has 9 moles <div class='mole'>", async () => {
-    const baby = await page.evaluate(() => {
-      const b = document.querySelectorAll(".GoodBaby");
-      return b.length;
+    const moles = await page.evaluate(() => {
+      const m = document.querySelectorAll(".mole");
+      return m.length;
      });
-    expect(baby).not.toBeNull();
-    expect(baby).toEqual(9);
+    expect(moles).not.toBeNull();
+    expect(moles).toEqual(9);
   });
 
   it("has a 'start' button <button id='start'>start</button>", async () => {
@@ -277,8 +277,8 @@ describe("US-04 whack()", () => {
   it("should increment score when clicking on mole", async () => {
     const points = await page.evaluate(() => {
       window.startGame();
-      const GoodBaby = document.querySelectorAll(".GoodBaby")[0];
-      GoodBaby.click();
+      const mole = document.querySelectorAll(".mole")[0];
+      mole.click();
       const points = document.querySelector("#score").innerHTML;
       return points;
     });
